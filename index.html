@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>हिन्दी – The Living Language</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Tiro+Devanagari+Hindi&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff8ee;--card:#fff;--ink:#2b1a12;--mut:#7a6558;--a:#e8590c;--b:#c2255c;--c:#f59f00;--line:#f0dcc6;--sh:0 8px 28px rgba(194,80,20,.15)}
+[data-theme=dark]{--bg:#17110e;--card:#241a16;--ink:#fbeee0;--mut:#b9a594;--line:#3a2b24;--sh:0 8px 28px rgba(0,0,0,.5)}
+*{box-sizing:border-box;margin:0}
+html{scroll-behavior:smooth}
+body{font-family:Poppins,system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65;transition:.3s}
+.hi{font-family:'Tiro Devanagari Hindi','Noto Sans Devanagari',serif}
+nav{position:sticky;top:0;z-index:50;display:flex;gap:6px;align-items:center;padding:10px 18px;background:var(--card);box-shadow:0 2px 12px rgba(0,0,0,.1);overflow-x:auto}
+nav b{margin-right:auto;font-size:1.3rem;color:var(--a);white-space:nowrap}
+nav a{color:var(--ink);text-decoration:none;font-size:.85rem;padding:6px 12px;border-radius:20px;white-space:nowrap}
+nav a:hover{background:var(--a);color:#fff}
+button{font:inherit;cursor:pointer;border:0}
+#theme{background:var(--line);border-radius:50%;width:36px;height:36px;font-size:1.1rem}
+.hero{min-height:88vh;display:grid;place-items:center;text-align:center;padding:40px 20px;position:relative;overflow:hidden;background:linear-gradient(135deg,#e8590c,#c2255c 60%,#7048e8);color:#fff}
+.hero h1{font-size:clamp(4rem,16vw,9rem);line-height:1.1;text-shadow:0 6px 30px rgba(0,0,0,.3)}
+.hero p{max-width:560px;margin:12px auto 24px;opacity:.95}
+.btn{background:#fff;color:var(--b);padding:12px 26px;border-radius:30px;font-weight:600;text-decoration:none;display:inline-block;transition:.2s}
+.btn:hover{transform:translateY(-3px) scale(1.04)}
+.fl{position:absolute;font-size:3rem;opacity:.15;animation:fl linear infinite;user-select:none;pointer-events:none}
+@keyframes fl{from{transform:translateY(105vh) rotate(0)}to{transform:translateY(-20vh) rotate(360deg)}}
+section{max-width:1050px;margin:auto;padding:70px 20px}
+h2{font-size:2rem;margin-bottom:6px}
+h2 span{color:var(--a)}
+.sub{color:var(--mut);margin-bottom:28px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin-top:-50px;position:relative;z-index:2;max-width:1050px;margin-inline:auto;padding:0 20px}
+.stat{background:var(--card);border-radius:18px;padding:20px;text-align:center;box-shadow:var(--sh)}
+.stat b{font-size:2rem;color:var(--a);display:block}
+.card{background:var(--card);border-radius:18px;padding:22px;box-shadow:var(--sh);border:1px solid var(--line)}
+.tl{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tl button{background:var(--card);border:2px solid var(--line);color:var(--ink);padding:8px 14px;border-radius:24px;font-size:.85rem;transition:.2s}
+.tl button.on{background:linear-gradient(90deg,var(--a),var(--b));color:#fff;border-color:transparent}
+#tlbox h3{color:var(--b);margin-bottom:6px}
+#tlbox .big{font-size:2.4rem;color:var(--a)}
+.qwrap{background:linear-gradient(135deg,#fff3bf,#ffd8a8);color:#2b1a12;text-align:center;padding:36px 24px;border-radius:24px;box-shadow:var(--sh)}
+[data-theme=dark] .qwrap{background:linear-gradient(135deg,#4a2c1a,#5c1f3a);color:#fff}
+.qwrap .hi{font-size:clamp(1.3rem,3.5vw,2rem);line-height:1.8;min-height:120px;transition:opacity .3s}
+.qwrap p.m{font-style:italic;opacity:.85;margin:10px 0}
+.qwrap button,.sm{background:var(--a);color:#fff;padding:9px 18px;border-radius:20px;margin:4px;font-size:.85rem}
+.qwrap button:hover,.sm:hover{background:var(--b)}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.poet{perspective:900px;height:250px;cursor:pointer}
+.poet>div{position:relative;width:100%;height:100%;transition:transform .6s;transform-style:preserve-3d}
+.poet.f>div{transform:rotateY(180deg)}
+.poet .s{position:absolute;inset:0;backface-visibility:hidden;border-radius:18px;padding:20px;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;box-shadow:var(--sh);font-size:.88rem}
+.poet .fr{background:var(--card);border:1px solid var(--line)}
+.poet .fr .hi{font-size:1.9rem;color:var(--a)}
+.poet .bk{background:linear-gradient(135deg,var(--a),var(--b));color:#fff;transform:rotateY(180deg)}
+.poem{display:grid;gap:14px}
+.poem .hi{font-size:1.3rem;line-height:1.9;color:var(--b)}
+.poem details{background:var(--card);border-radius:14px;padding:16px 20px;border:1px solid var(--line);box-shadow:var(--sh)}
+.poem summary{cursor:pointer;font-weight:600}
+.tabs{display:flex;gap:8px;margin-bottom:14px}
+.tabs button{background:var(--line);color:var(--ink);padding:8px 18px;border-radius:20px}
+.tabs button.on{background:var(--a);color:#fff}
+.letters{display:grid;grid-template-columns:repeat(auto-fill,minmax(62px,1fr));gap:10px}
+.lt{background:var(--card);border:2px solid var(--line);border-radius:14px;font-size:1.9rem;padding:8px 0;color:var(--ink);transition:.2s}
+.lt:hover,.lt.on{background:var(--a);color:#fff;transform:translateY(-4px)}
+#ldet{margin-top:18px;display:flex;gap:20px;align-items:center;flex-wrap:wrap}
+#ldet .huge{font-size:6rem;color:var(--a);line-height:1}
+canvas{background:#fff;border:2px dashed var(--a);border-radius:14px;touch-action:none;max-width:100%}
+.tip{background:var(--card);border:1px solid var(--line);border-radius:14px;margin-bottom:10px;overflow:hidden}
+.tip button{width:100%;text-align:left;background:none;color:var(--ink);padding:16px 20px;font-weight:600;display:flex;justify-content:space-between}
+.tip div{max-height:0;overflow:hidden;padding:0 20px;color:var(--mut);transition:.35s}
+.tip.on div{max-height:200px;padding:0 20px 16px}
+.tip.on button span{transform:rotate(45deg)}
+.opt{display:block;width:100%;text-align:left;margin:8px 0;padding:12px 16px;border-radius:12px;background:var(--bg);color:var(--ink);border:2px solid var(--line)}
+.opt:hover{border-color:var(--a)}
+.opt.ok{background:#37b24d;color:#fff}.opt.no{background:#e03131;color:#fff}
+footer{text-align:center;padding:30px;background:var(--card);color:var(--mut)}
+.rv{opacity:0;transform:translateY(30px);transition:.7s}.rv.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<nav>
+<b class="hi">हिन्दी</b>
+<a href="#origin">Origin</a><a href="#quotes">Quotes</a><a href="#poets">Poets</a><a href="#poems">Poems</a><a href="#learn">Alphabet</a><a href="#tips">Tips</a><a href="#quiz">Quiz</a>
+<button id="theme" title="Toggle theme">🌙</button>
+</nav>
+<header class="hero" id="top">
+<div id="floaters"></div>
+<div style="position:relative">
+<h1 class="hi">हिन्दी</h1>
+<p>The language of poets, saints and over half a billion voices. Explore its roots, read its wisdom, and take your first steps in Devanagari.</p>
+<a class="btn" href="#origin">Begin the journey ↓</a>
+</div>
+</header>
+<div class="stats rv">
+<div class="stat"><b data-n="600">0</b>Million speakers (approx.)</div>
+<div class="stat"><b data-n="46">0</b>Letters in the basic chart</div>
+<div class="stat"><b data-n="1000">0</b>Years of literature</div>
+<div class="stat"><b data-n="14">0</b>September – Hindi Diwas</div>
+</div>
+<section id="origin" class="rv">
+<h2>Origin of <span>Hindi</span></h2><p class="sub">Tap each era to follow the language's journey.</p><div class="tl" id="tl"></div><div class="card" id="tlbox"></div>
+<div class="grid" style="margin-top:20px">
+<div class="card"><h3>📜 Script</h3><p>Written in <b>Devanagari</b>, left to right, with a horizontal line (शिरोरेखा) on top of letters.</p></div>
+<div class="card"><h3>🏛️ Official status</h3><p>Hindi in Devanagari was adopted as an official language of India's Union on 14 September 1949.</p></div>
+<div class="card"><h3>🌏 Spread</h3><p>Spoken across India and by diaspora in Fiji, Mauritius, Nepal, Trinidad, the Gulf, the UK, USA and beyond.</p></div>
+<div class="card"><h3>🔤 Words you know</h3><p>Shampoo, jungle, bungalow, pyjamas, avatar, karma, yoga and thug all entered English from Hindi.</p></div>
+</div></section>
+<section id="quotes" class="rv"><h2>Famous <span>Quotes</span></h2><p class="sub">Timeless couplets (dohas) from saint-poets.</p><div class="qwrap"><div class="hi" id="qt"></div><p class="m" id="qm"></p><b id="qa"></b><br><br><button id="qp">← Prev</button><button id="qn">Next →</button><button id="qr">🎲 Random</button><button id="qc">📋 Copy</button><button id="qs">🔊 Listen</button></div></section>
+<section id="poets" class="rv"><h2>Great <span>Poets & Writers</span></h2><p class="sub">Click a card to flip it.</p><div class="grid" id="pg"></div></section>
+<section id="poems" class="rv"><h2>Poems to <span>Savour</span></h2><p class="sub">Open a poem to read its meaning.</p><div class="poem" id="pm"></div></section>
+<section id="learn" class="rv"><h2>Learn the <span>Alphabet</span></h2><p class="sub">Tap any letter to see it, hear it and practice writing it.</p><div class="tabs"><button class="on" data-t="v">Vowels स्वर</button><button data-t="c">Consonants व्यंजन</button></div><div class="letters" id="lg"></div><div class="card" id="ldet" style="margin-top:20px"><div class="huge hi" id="lh">अ</div><div style="flex:1;min-width:180px"><h3 id="lr"></h3><p id="lw"></p><button class="sm" id="ls">🔊 Hear it</button></div><div><canvas id="cv" width="220" height="180"></canvas><br><button class="sm" id="cc">Clear</button><small style="color:var(--mut)"> Draw here ✍️</small></div></div></section>
+<section id="tips" class="rv"><h2>Tips to <span>Read & Write</span></h2><p class="sub">Simple habits that make Hindi stick.</p><div id="tp"></div></section>
+<section id="quiz" class="rv"><h2>Test <span>Yourself</span></h2><div class="card"><small id="qn2" style="color:var(--mut)"></small><h3 id="qq" style="margin:6px 0 10px"></h3><div id="qo"></div><p id="qf" style="margin-top:10px;font-weight:600"></p></div></section>
+<footer>Made with ❤️ for the love of हिन्दी · Hindi Diwas is celebrated every 14 September</footer>
+<script>
+const $=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)];
+const speak=t=>{try{speechSynthesis.cancel();const u=new SpeechSynthesisUtterance(t);u.lang='hi-IN';u.rate=.8;speechSynthesis.speak(u)}catch(e){}};
+$('#theme').onclick=()=>{const d=document.documentElement;const dk=d.dataset.theme==='dark';d.dataset.theme=dk?'':'dark';$('#theme').textContent=dk?'🌙':'☀️'};
+'अआइईउकखगचजतदनपमरलवसह'.split('').forEach((c,i)=>{const e=document.createElement('span');e.className='fl hi';e.textContent=c;e.style.left=Math.random()*95+'%';e.style.animationDuration=(10+Math.random()*14)+'s';e.style.animationDelay=(-Math.random()*20)+'s';e.style.fontSize=(2+Math.random()*3)+'rem';$('#floaters').append(e)});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');e.target.querySelectorAll('[data-n]').forEach(c=>{const n=+c.dataset.n;let v=0;const t=setInterval(()=>{v+=Math.ceil(n/50);if(v>=n){v=n;clearInterval(t)}c.textContent=v},25)});io.unobserve(e.target)}}),{threshold:.15});
+$$('.rv').forEach(e=>io.observe(e));
+const TL=[['~1500 BCE','वैदिक संस्कृत','Vedic Sanskrit','The oldest layer: the Vedas are composed in an early form of Sanskrit, the ancestor of most North Indian languages.'],['~500 BCE','प्राकृत','Prakrit','Everyday spoken dialects such as Shauraseni develop alongside classical Sanskrit and spread widely, including through Buddhist and Jain texts.'],['~600–1000 CE','अपभ्रंश','Apabhramsha','Prakrits transform into Apabhramsha, a bridge between ancient and modern speech, with simpler grammar and new sounds.'],['~1000–1300','अवहट्ट / हिन्दवी','Old Hindi','Early Hindi forms emerge. Poets like Amir Khusro (13th c.) write in "Hindavi", mixing local speech with Persian flavour.'],['1300–1800','भक्ति काल','Bhakti Era','Kabir, Surdas, Tulsidas, Mirabai and Rahim compose in Awadhi, Braj and Sadhukkadi, making Hindi the voice of devotion and wisdom.'],['1800s','खड़ी बोली','Khari Boli','Dialect of the Delhi region becomes standard prose. Bharatendu Harishchandra pioneers modern Hindi literature.'],['1949','राजभाषा','Official Language','Hindi in Devanagari is adopted as an official language of the Union of India. Hindi Diwas follows each 14 September.']];
+TL.forEach((t,i)=>{const b=document.createElement('button');b.textContent=t[0];b.onclick=()=>showTL(i);$('#tl').append(b)});
+function showTL(i){$$('#tl button').forEach((b,j)=>b.classList.toggle('on',i===j));const t=TL[i];$('#tlbox').innerHTML=`<div class="big hi">${t[1]}</div><h3>${t[2]} · ${t[0]}</h3><p>${t[3]}</p>`};showTL(0);
+const Q=[['बुरा जो देखन मैं चला, बुरा न मिलिया कोय।\nजो दिल खोजा आपना, मुझसे बुरा न कोय॥','I set out to find the wicked and found none; when I looked within, no one was worse than me.','Kabir'],['पोथी पढ़ि पढ़ि जग मुआ, पंडित भया न कोय।\nढाई आखर प्रेम का, पढ़े सो पंडित होय॥','Reading endless books has made no one wise; one who learns two and a half letters of love becomes learned.','Kabir'],['धीरे धीरे रे मना, धीरे सब कुछ होय।\nमाली सींचे सौ घड़ा, ऋतु आए फल होय॥','Slowly, mind, slowly everything happens; the gardener may water a hundred pots but fruit comes in its season.','Kabir'],['रहिमन धागा प्रेम का, मत तोड़ो चटकाय।\nटूटे से फिर ना जुड़े, जुड़े गाँठ पड़ जाय॥','The thread of love should not be snapped; once broken it will not rejoin, and if it does, a knot remains.','Rahim'],['रहिमन पानी राखिए, बिन पानी सब सून।\nपानी गए न ऊबरे, मोती मानुष चून॥','Preserve your "water" (dignity), for without it all is empty; pearl, person and lime are all lost without it.','Rahim'],['तुलसी मीठे वचन ते, सुख उपजत चहुँ ओर।\nबसीकरन इक मंत्र है, परिहरू बचन कठोर॥','Sweet words bring joy all around; this is the one charm to win hearts, so give up harsh speech.','Tulsidas'],['निज भाषा उन्नति अहै, सब उन्नति को मूल।','Progress in one\'s own language is the root of all progress.','Bharatendu Harishchandra']];
+let qi=0;function showQ(i){qi=(i+Q.length)%Q.length;const q=$('#qt');q.style.opacity=0;setTimeout(()=>{q.innerHTML=Q[qi][0].replace(/\n/g,'<br>');$('#qm').textContent=Q[qi][1];$('#qa').textContent='— '+Q[qi][2];q.style.opacity=1},250)}
+$('#qn').onclick=()=>showQ(qi+1);$('#qp').onclick=()=>showQ(qi-1);$('#qr').onclick=()=>showQ(Math.floor(Math.random()*Q.length));$('#qc').onclick=e=>{navigator.clipboard?.writeText(Q[qi][0]+'\n— '+Q[qi][2]);e.target.textContent='✅ Copied';setTimeout(()=>e.target.textContent='📋 Copy',1500)};$('#qs').onclick=()=>speak(Q[qi][0]);showQ(0);setInterval(()=>showQ(qi+1),12000);
+const P=[['कबीर','Kabir','c. 15th century','Mystic poet whose plain-spoken dohas challenged ritual and division and still echo in daily Hindi.'],['सूरदास','Surdas','c. 1478–1583','Blind devotional poet of Braj Bhasha, famed for tender songs on young Krishna in the Sur Sagar.'],['तुलसीदास','Tulsidas','1532–1623','Author of the Ramcharitmanas, the Awadhi retelling of the Ramayana loved across North India.'],['मीराबाई','Mirabai','c. 16th century','Rajput princess-turned-saint whose passionate bhajans of devotion to Krishna remain widely sung.'],['भारतेन्दु हरिश्चन्द्र','Bharatendu Harishchandra','1850–1885','Called the father of modern Hindi literature; a playwright, poet and champion of Hindi in Khari Boli.'],['प्रेमचन्द','Premchand','1880–1936','The great novelist of Hindi and Urdu; Godaan and Nirmala, and stories like Idgah, portray real village life.'],['महादेवी वर्मा','Mahadevi Varma','1907–1987','Major poet of the Chhayavad movement, also an essayist and advocate for women\'s education.'],['रामधारी सिंह दिनकर','Ramdhari Singh Dinkar','1908–1974','"Rashtrakavi" known for powerful poems of heroism and national awakening, such as Rashmirathi.']];
+P.forEach(p=>{const d=document.createElement('div');d.className='poet';d.innerHTML=`<div><div class="s fr"><div class="hi">${p[0]}</div><b>${p[1]}</b><small style="color:var(--mut)">${p[2]}</small><small style="margin-top:10px;color:var(--a)">tap to flip ↻</small></div><div class="s bk"><b>${p[1]}</b><p style="margin-top:8px">${p[3]}</p></div></div>`;d.onclick=()=>d.classList.toggle('f');$('#pg').append(d)});
+const PM=[['Kabir · Two and a half letters','पोथी पढ़ि पढ़ि जग मुआ, पंडित भया न कोय।<br>ढाई आखर प्रेम का, पढ़े सो पंडित होय॥','True wisdom is not bookish learning but the ability to love. The "two and a half letters" are the Hindi word प्रेम (prem).'],['Rahim · The thread of love','रहिमन धागा प्रेम का, मत तोड़ो चटकाय।<br>टूटे से फिर ना जुड़े, जुड़े गाँठ पड़ जाय॥','Relationships are fragile like a delicate thread; even when mended, the knot of hurt remains. Be careful with those you love.'],['Tulsidas · Sweet words','तुलसी मीठे वचन ते, सुख उपजत चहुँ ओर।<br>बसीकरन इक मंत्र है, परिहरू बचन कठोर॥','Kind speech is the simplest way to win people. Leave harshness aside and speak gently.']];
+PM.forEach(p=>{const d=document.createElement('details');d.innerHTML=`<summary>${p[0]}</summary><p class="hi" style="margin-top:10px">${p[1]}</p><p style="color:var(--mut)">${p[2]}</p><button class="sm">🔊 Listen</button>`;d.querySelector('button').onclick=()=>speak(p[1].replace(/<br>/g,' '));$('#pm').append(d)});
+const A={v:[['अ','a','अनार','anaar – pomegranate'],['आ','aa','आम','aam – mango'],['इ','i','इमली','imli – tamarind'],['ई','ee','ईख','eekh – sugarcane'],['उ','u','उल्लू','ulloo – owl'],['ऊ','oo','ऊँट','oont – camel'],['ए','e','एक','ek – one'],['ऐ','ai','ऐनक','ainak – glasses'],['ओ','o','ओखली','okhli – mortar'],['औ','au','औरत','aurat – woman'],['अं','an','अंगूर','angoor – grapes']],c:[['क','ka','कमल','kamal – lotus'],['ख','kha','खरगोश','khargosh – rabbit'],['ग','ga','गमला','gamla – flowerpot'],['घ','gha','घर','ghar – home'],['च','cha','चम्मच','chammach – spoon'],['छ','chha','छतरी','chhatri – umbrella'],['ज','ja','जहाज़','jahaaz – ship'],['ट','Ta','टमाटर','tamaatar – tomato'],['ड','Da','डमरू','damru – small drum'],['त','ta','तारा','taara – star'],['थ','tha','थाली','thaali – plate'],['द','da','दरवाज़ा','darvaaza – door'],['ध','dha','धनुष','dhanush – bow'],['न','na','नल','nal – tap'],['प','pa','पतंग','patang – kite'],['फ','fa','फल','phal – fruit'],['ब','ba','बतख','batakh – duck'],['भ','bha','भालू','bhaaloo – bear'],['म','ma','मछली','machhli – fish'],['य','ya','यज्ञ','yagya – ritual'],['र','ra','रथ','rath – chariot'],['ल','la','लड्डू','laddoo – sweet'],['व','va','वन','van – forest'],['श','sha','शेर','sher – lion'],['स','sa','सेब','seb – apple'],['ह','ha','हाथी','haathi – elephant']]};
+let cur='v';function renderL(){$('#lg').innerHTML='';A[cur].forEach((l,i)=>{const b=document.createElement('button');b.className='lt hi';b.textContent=l[0];b.onclick=()=>{$$('.lt').forEach(x=>x.classList.remove('on'));b.classList.add('on');showL(l)};$('#lg').append(b)})}
+function showL(l){$('#lh').textContent=l[0];$('#lr').textContent='Sounds like: "'+l[1]+'"';$('#lw').innerHTML=`Example: <b class="hi" style="font-size:1.4rem">${l[2]}</b> (${l[3]})`;$('#ls').onclick=()=>speak(l[2]);speak(l[2]);clr()}
+$$('.tabs button').forEach(b=>b.onclick=()=>{$$('.tabs button').forEach(x=>x.classList.remove('on'));b.classList.add('on');cur=b.dataset.t;renderL()});renderL();$('#lh').textContent='अ';$('#lr').textContent='Sounds like: "a"';$('#lw').innerHTML='Example: <b class="hi" style="font-size:1.4rem">अनार</b> (anaar – pomegranate)';$('#ls').onclick=()=>speak('अनार');
+const cv=$('#cv'),x=cv.getContext('2d');let dr=false;function clr(){x.clearRect(0,0,cv.width,cv.height);x.fillStyle='#fff';x.fillRect(0,0,cv.width,cv.height);x.font='130px "Tiro Devanagari Hindi",serif';x.fillStyle='#f3d9c4';x.textAlign='center';x.textBaseline='middle';x.fillText($('#lh').textContent,110,95)}
+const pos=e=>{const r=cv.getBoundingClientRect(),t=e.touches?e.touches[0]:e;return[(t.clientX-r.left)*cv.width/r.width,(t.clientY-r.top)*cv.height/r.height]};const st=e=>{dr=true;x.beginPath();x.moveTo(...pos(e));e.preventDefault()};const mv=e=>{if(!dr)return;x.lineWidth=5;x.lineCap='round';x.strokeStyle='#e8590c';x.lineTo(...pos(e));x.stroke();e.preventDefault()};['mousedown','touchstart'].forEach(v=>cv.addEventListener(v,st));['mousemove','touchmove'].forEach(v=>cv.addEventListener(v,mv));['mouseup','mouseleave','touchend'].forEach(v=>cv.addEventListener(v,()=>dr=false));$('#cc').onclick=clr;document.fonts.ready.then(clr);
+const T=[['1. Start with the vowels, then consonants','Learn the 11 vowels (स्वर) first, then the consonants in their grouped order (क-वर्ग, च-वर्ग…). The chart is logically arranged by where the sound is made in the mouth.'],['2. Learn the matras (vowel signs)','Vowels attach to consonants as marks: क + ा = का, क + ि = कि, क + ु = कु. Practice one consonant with every matra.'],['3. Write with the headline','Draw the letter first, then the horizontal line (शिरोरेखा) on top of the whole word at the end. Practice on lined paper for even spacing.'],['4. Read aloud and sound out','Hindi is largely phonetic: you read what you see. Say each syllable aloud, then blend. Start with 2-letter words like घर, जल, कल.'],['5. Understand conjuncts (संयुक्ताक्षर)','Two consonants can merge: क + ष = क्ष, त + र = त्र, ज + ञ = ज्ञ. Learn the common ones gradually.'],['6. Label your world','Put sticky notes on objects: दरवाज़ा, मेज़, पानी. Seeing words daily builds reading speed.'],['7. Consume Hindi daily','Listen to songs with lyrics, watch Hindi films with subtitles, read children\'s stories and short news headlines. Even 15 minutes a day beats a long weekly session.'],['8. Practice with a partner or journal','Write 3 sentences each day about your day. Share with a native speaker or language partner for feedback.']];
+T.forEach(t=>{const d=document.createElement('div');d.className='tip';d.innerHTML=`<button>${t[0]}<span style="transition:.3s;font-size:1.3rem">+</span></button><div>${t[1]}</div>`;d.querySelector('button').onclick=()=>d.classList.toggle('on');$('#tp').append(d)});
+const QZ=[['Which script is Hindi written in?',['Devanagari','Latin','Gurmukhi','Brahmi only'],0],['Which language is the ancestor of Hindi?',['Latin','Sanskrit','Tamil','Greek'],1],['Who wrote the doha about "two and a half letters of love"?',['Rahim','Premchand','Kabir','Dinkar'],2],['What does आम (aam) mean?',['Apple','Mango','Grapes','Fruit'],1],['When is Hindi Diwas celebrated?',['14 September','26 January','15 August','2 October'],0]];
+let qz=0,sc=0;function loadQz(){if(qz>=QZ.length){$('#qn2').textContent='Finished!';$('#qq').textContent=`You scored ${sc}/${QZ.length} ${sc>=4?'🏆 शाबाश!':'👍 Try again!'}`;$('#qo').innerHTML='<button class="sm" onclick="qz=0;sc=0;loadQz()">Play again</button>';$('#qf').textContent='';return}const q=QZ[qz];$('#qn2').textContent=`Question ${qz+1} of ${QZ.length}`;$('#qq').textContent=q[0];$('#qf').textContent='';$('#qo').innerHTML='';q[1].forEach((o,i)=>{const b=document.createElement('button');b.className='opt';b.textContent=o;b.onclick=()=>{$$('.opt').forEach((x,j)=>{x.disabled=true;if(j===q[2])x.classList.add('ok')});if(i===q[2]){sc++;$('#qf').textContent='Correct! 🎉'}else{b.classList.add('no');$('#qf').textContent='Not quite.'}setTimeout(()=>{qz++;loadQz()},1200)};$('#qo').append(b)})};loadQz();
+</script>
+</body>
+</html>
